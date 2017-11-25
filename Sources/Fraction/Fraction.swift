@@ -2,7 +2,7 @@ enum FractionError: Error {
 case zeroDenominator
 }
 
-struct Fraction: CustomStringConvertible, Equatable {
+public struct Fraction: CustomStringConvertible, Equatable {
     var numerator: Int
     var denominator: Int
     var description: String {
@@ -11,7 +11,7 @@ struct Fraction: CustomStringConvertible, Equatable {
       return wholePart + (fractionPart.first! == "0" ? "" : fractionPart)
     }
 
-    init?(_ numerator:Int, _ denominator: Int) {
+    public init?(_ numerator:Int, _ denominator: Int) {
       guard denominator != 0 else { return nil }
       self.numerator = numerator * (abs(denominator) / denominator)
       self.denominator = abs(denominator)
